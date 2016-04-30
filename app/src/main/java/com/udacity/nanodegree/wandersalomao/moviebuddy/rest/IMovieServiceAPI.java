@@ -2,6 +2,7 @@ package com.udacity.nanodegree.wandersalomao.moviebuddy.rest;
 
 import com.udacity.nanodegree.wandersalomao.moviebuddy.model.MovieApiResponse;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.model.MovieDetails;
+import com.udacity.nanodegree.wandersalomao.moviebuddy.model.TrailerApiResponse;
 
 import retrofit.Callback;
 import retrofit.http.GET;
@@ -24,6 +25,12 @@ public interface IMovieServiceAPI {
             @Query("api_key") String apiKey,
             @Path("id") String id,
             Callback<MovieDetails> callback);
+
+    @GET("/movie/{id}/videos")
+    void getTrailerDetail(
+            @Query("api_key") String apiKey,
+            @Path("id") String id,
+            Callback<TrailerApiResponse> callback);
 
 }
 

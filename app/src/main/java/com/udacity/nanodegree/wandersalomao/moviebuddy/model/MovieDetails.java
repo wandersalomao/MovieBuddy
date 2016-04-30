@@ -16,7 +16,7 @@ public class MovieDetails {
     private String rating;
 
     @SerializedName("genres")
-    private String[] genres;
+    private MovieGenre[] genres;
 
     @SerializedName("release_date")
     private String releaseDate;
@@ -60,10 +60,6 @@ public class MovieDetails {
         return rating;
     }
 
-    public String[] getGenres() {
-        return genres;
-    }
-
     public String getReleaseDate() {
         return releaseDate;
     }
@@ -102,5 +98,9 @@ public class MovieDetails {
 
     public String getPosterPath() {
         return posterPath;
+    }
+
+    public MovieGenre[] getGenres() {
+        return genres;
     }
 }

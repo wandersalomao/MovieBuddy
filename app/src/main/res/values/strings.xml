@@ -7,5 +7,18 @@
 
     <string name="popular_movies">Popular Movies</string>
 
+    <string name="popularity">Popularity</string>
+
+    <string name="language">Language</string>
+
+    <string name="duration">"Duration - "</string>
+
+    <string name="min">" min"</string>
+
+    <string name="site">"Site - "</string>
+
+    <string name="quality">"Quality - "</string>
+
+    <string name="title_activity_movie_detail">Movie Details</string>
 
 </resources>

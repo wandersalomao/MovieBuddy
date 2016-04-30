@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.common.util.Constants;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.model.MovieApiResponse;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.model.MovieDetails;
+import com.udacity.nanodegree.wandersalomao.moviebuddy.model.TrailerApiResponse;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
@@ -48,6 +49,10 @@ public class RestClient {
 
     public void getDetailMovie(String id, Callback<MovieDetails> callback) {
         apiService.getMovieDetail(Constants.API_KEY, id, callback);
+    }
+
+    public void getTrailers(String id, Callback<TrailerApiResponse> callback) {
+        apiService.getTrailerDetail(Constants.API_KEY, id, callback);
     }
 
 }
