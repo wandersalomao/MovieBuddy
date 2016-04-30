@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MovieBuddy</string>
+
+    <string name="username">Wander Salomão</string>
+
+    <string name="movieListItemDescription">Movie Item Image</string>
+
+    <string name="popular_movies">Popular Movies</string>
+
+
+</resources>
