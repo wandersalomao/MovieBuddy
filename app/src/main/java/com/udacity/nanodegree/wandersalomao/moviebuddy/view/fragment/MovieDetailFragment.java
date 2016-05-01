@@ -3,6 +3,7 @@ package com.udacity.nanodegree.wandersalomao.moviebuddy.view.fragment;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -19,6 +20,7 @@ import com.udacity.nanodegree.wandersalomao.moviebuddy.R;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.adapter.MovieDetailsAdapter;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.common.util.Constants;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.common.util.ImageLoaderCallback;
+import com.udacity.nanodegree.wandersalomao.moviebuddy.database.MovieDAO;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.model.MovieDetails;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.model.Trailer;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.model.TrailerApiResponse;
@@ -47,6 +49,7 @@ public class MovieDetailFragment extends Fragment {
     private String movieId;
     private MovieDetails mMovieDetails;
     private List<Trailer> mTrailers;
+    private boolean isFavoriteMovie;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,13 +64,13 @@ public class MovieDetailFragment extends Fragment {
         mTrailers = new ArrayList<>();
 
         movieId = getActivity().getIntent().getStringExtra("movieId");
+        isFavoriteMovie = MovieDAO.isFavoriteMovie(getActivity(), movieId);
 
         mCollapsingToolbarLayout.setExpandedTitleColor( getResources().getColor(android.R.color.transparent));
         mCollapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(android.R.color.white));
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
 
         mToolbar.setNavigationIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_back));
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -77,10 +80,46 @@ public class MovieDetailFragment extends Fragment {
             }
         });
 
+        if (isFavoriteMovie) {
+            fab.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_like));
+        } else {
+            fab.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_like_outline));
+        }
+
+        fab.show();
+        fab.setOnClickListener(onClickFavoriteListener);
+
         RestClient.getInstance().getDetailMovie(movieId, movieDetailsCallback);
 
         return v;
     }
+
+    private final View.OnClickListener onClickFavoriteListener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+
+            if (isFavoriteMovie) {
+
+                MovieDAO.unsetMovieAsFavorite(getActivity(), movieId);
+                Snackbar.make(view, getResources().getString(R.string.removed_from_favorites), Snackbar.LENGTH_LONG)
+                        .show();
+                fab.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_like_outline));
+                isFavoriteMovie = false;
+
+            } else {
+
+                MovieDAO.setMovieAsFavorite(getActivity(), mMovieDetails);
+
+                Snackbar.make(view, getResources().getString(R.string.added_to_favorites), Snackbar.LENGTH_LONG)
+                        .show();
+
+                fab.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_like));
+
+                isFavoriteMovie = true;
+            }
+        }
+    };
 
     private final Callback movieDetailsCallback = new Callback<MovieDetails>() {
 
@@ -92,9 +131,6 @@ public class MovieDetailFragment extends Fragment {
                     .into(mBackdrop, new ImageLoaderCallback(mBackdrop.getContext(), "Backcrop Poster"));
 
             mCollapsingToolbarLayout.setTitle(movieDetails.getTitle());
-
-            fab.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_like_outline));
-            fab.show();
 
             mMovieDetails = movieDetails;
             mAdapter = new MovieDetailsAdapter(mMovieDetails, mTrailers, getActivity());

@@ -35,7 +35,7 @@ public class PopularMoviesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        mRecyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_popular_movies_list, container, false);
+        mRecyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_movies_list, container, false);
         mGridLayoutManager = new GridLayoutManager(getActivity(), NUMBER_GRID_COLUMNS);
         mAdapter = new MovieListAdapter(mMovieList, getActivity());
         mAdapter.setmAdapterCallback((MainActivity) this.getActivity());

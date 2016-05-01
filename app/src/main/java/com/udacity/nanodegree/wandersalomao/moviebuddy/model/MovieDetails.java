@@ -103,4 +103,19 @@ public class MovieDetails {
     public MovieGenre[] getGenres() {
         return genres;
     }
+
+    public String getGenre() {
+        String genres = "";
+        if (this.getGenres() != null) {
+            for (MovieGenre genre : this.getGenres()) {
+
+                if (!genres.isEmpty()) {
+                    genres += ", ";
+                }
+
+                genres += genre.getName();
+            }
+        }
+        return genres;
+    }
 }

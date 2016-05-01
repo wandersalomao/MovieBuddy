@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.udacity.nanodegree.wandersalomao.moviebuddy.R;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.listener.IMovieItemSelectedListener;
+import com.udacity.nanodegree.wandersalomao.moviebuddy.view.fragment.FavoriteMoviesFragment;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.view.fragment.MovieDetailFragment;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.view.fragment.PopularMoviesFragment;
 
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements IMovieItemSelecte
     private void setupViewPager() {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new PopularMoviesFragment(), getString(R.string.popular_movies));
+        adapter.addFragment(new FavoriteMoviesFragment(), getString(R.string.favorites));
         mViewPager.setAdapter(adapter);
         mViewPager.setOffscreenPageLimit(2);
     }

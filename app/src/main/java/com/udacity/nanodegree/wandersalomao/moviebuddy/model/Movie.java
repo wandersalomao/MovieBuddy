@@ -1,6 +1,8 @@
 package com.udacity.nanodegree.wandersalomao.moviebuddy.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.udacity.nanodegree.wandersalomao.moviebuddy.common.util.Constants;
+
 import org.parceler.Parcel;
 
 @Parcel
@@ -26,7 +28,7 @@ public class Movie {
     }
 
     public String getPosterPath() {
-        return posterPath;
+        return Constants.POSTER_BASE_URL + posterPath;
     }
 
     public String getDate() {

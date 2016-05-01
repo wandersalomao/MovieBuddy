@@ -6,22 +6,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.R;
-import com.udacity.nanodegree.wandersalomao.moviebuddy.common.util.Constants;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.common.util.ImageLoaderCallback;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.listener.IMovieItemSelectedListener;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.model.Movie;
 
 import java.util.ArrayList;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-
-public class MovieListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class MovieListAdapter extends RecyclerView.Adapter<MovieViewHolder> {
 
     private ArrayList<Movie> mMovieList = new ArrayList<>();
     private Activity mActivity;
@@ -41,21 +35,18 @@ public class MovieListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = mInflater.inflate(R.layout.movie_list_item, parent, false);
         mContext = parent.getContext();
         return new MovieViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(MovieViewHolder movieViewHolder, final int position) {
 
-        MovieViewHolder movieViewHolder = (MovieViewHolder) holder;
         Movie selectedMovie = mMovieList.get(position);
 
         movieViewHolder.getTitleView().setText(selectedMovie.getTitle());
-
-        String posterURL = Constants.POSTER_BASE_URL + selectedMovie.getPosterPath();
 
         movieViewHolder.itemView.setOnClickListener(new View.OnClickListener(){
 
@@ -66,7 +57,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         });
 
         Picasso.with(mContext)
-                .load(posterURL)
+                .load(selectedMovie.getPosterPath())
                 .into(movieViewHolder.getImageView(), new ImageLoaderCallback(mContext, "MoviePoster"));
     }
 
@@ -75,22 +66,4 @@ public class MovieListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return mMovieList.size();
     }
 
-    static class MovieViewHolder extends RecyclerView.ViewHolder {
-
-        @InjectView(R.id.image) ImageView imageView;
-        @InjectView(R.id.title) TextView titleView;
-
-        public MovieViewHolder(View view) {
-            super(view);
-            ButterKnife.inject(this, view);
-        }
-
-        public ImageView getImageView() {
-            return imageView;
-        }
-
-        public TextView getTitleView() {
-            return titleView;
-        }
-    }
 }
