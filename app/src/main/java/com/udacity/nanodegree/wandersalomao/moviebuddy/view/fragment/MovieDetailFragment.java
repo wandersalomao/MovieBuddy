@@ -46,7 +46,7 @@ public class MovieDetailFragment extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
     private MovieDetailsAdapter mAdapter;
 
-    private String movieId;
+    private String mMovieId;
     private MovieDetails mMovieDetails;
     private List<Trailer> mTrailers;
     private boolean isFavoriteMovie;
@@ -63,8 +63,8 @@ public class MovieDetailFragment extends Fragment {
         mMovieDetails = new MovieDetails();
         mTrailers = new ArrayList<>();
 
-        movieId = getActivity().getIntent().getStringExtra("movieId");
-        isFavoriteMovie = MovieDAO.isFavoriteMovie(getActivity(), movieId);
+        mMovieId = getActivity().getIntent().getStringExtra("movieId");
+        isFavoriteMovie = mMovieId != null && MovieDAO.isFavoriteMovie(getActivity(), mMovieId);
 
         mCollapsingToolbarLayout.setExpandedTitleColor( getResources().getColor(android.R.color.transparent));
         mCollapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(android.R.color.white));
@@ -72,24 +72,20 @@ public class MovieDetailFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mToolbar.setNavigationIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_back));
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().finish();
-            }
-        });
+        // if the device is a tablet the movieID will not be passed the first time this fragment is
+        // created so we don't need to add the navigation icon and do the remote call
+        if (mMovieId != null) {
 
-        if (isFavoriteMovie) {
-            fab.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_like));
-        } else {
-            fab.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_like_outline));
+            mToolbar.setNavigationIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_back));
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getActivity().finish();
+                }
+            });
+
+            RestClient.getInstance().getDetailMovie(mMovieId, movieDetailsCallback);
         }
-
-        fab.show();
-        fab.setOnClickListener(onClickFavoriteListener);
-
-        RestClient.getInstance().getDetailMovie(movieId, movieDetailsCallback);
 
         return v;
     }
@@ -101,7 +97,7 @@ public class MovieDetailFragment extends Fragment {
 
             if (isFavoriteMovie) {
 
-                MovieDAO.unsetMovieAsFavorite(getActivity(), movieId);
+                MovieDAO.unsetMovieAsFavorite(getActivity(), mMovieId);
                 Snackbar.make(view, getResources().getString(R.string.removed_from_favorites), Snackbar.LENGTH_LONG)
                         .show();
                 fab.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_like_outline));
@@ -126,6 +122,15 @@ public class MovieDetailFragment extends Fragment {
         @Override
         public void success(MovieDetails movieDetails, Response response) {
 
+            if (isFavoriteMovie) {
+                fab.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_like));
+            } else {
+                fab.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_like_outline));
+            }
+
+            fab.show();
+            fab.setOnClickListener(onClickFavoriteListener);
+
             Picasso.with(mBackdrop.getContext())
                     .load(Constants.POSTER_BASE_URL_780 + movieDetails.getBackdropPath())
                     .into(mBackdrop, new ImageLoaderCallback(mBackdrop.getContext(), "Backcrop Poster"));
@@ -136,7 +141,7 @@ public class MovieDetailFragment extends Fragment {
             mAdapter = new MovieDetailsAdapter(mMovieDetails, mTrailers, getActivity());
             mRecyclerView.setAdapter(mAdapter);
 
-            RestClient.getInstance().getTrailers(movieId, trailerDetailsCallback);
+            RestClient.getInstance().getTrailers(mMovieId, trailerDetailsCallback);
 
         }
 
@@ -166,6 +171,8 @@ public class MovieDetailFragment extends Fragment {
     };
 
     public void updateContent(String movieId) {
+        mMovieId = movieId;
+        isFavoriteMovie = mMovieId != null && MovieDAO.isFavoriteMovie(getActivity(), mMovieId);
         RestClient.getInstance().getDetailMovie(movieId, movieDetailsCallback);
     }
 

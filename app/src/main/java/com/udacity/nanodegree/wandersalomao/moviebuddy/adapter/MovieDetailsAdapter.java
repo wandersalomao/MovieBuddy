@@ -3,7 +3,6 @@ package com.udacity.nanodegree.wandersalomao.moviebuddy.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -86,10 +85,10 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
                 int color = mContext.getResources().getColor(R.color.colorAccent);
 
-                detailsViewHolder.getRatingsBackground().getDrawable().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
-                detailsViewHolder.getGenreBackground().getDrawable().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
-                detailsViewHolder.getPopBackground().getDrawable().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
-                detailsViewHolder.getLangBackground().getDrawable().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+                //detailsViewHolder.getRatingsBackground().getDrawable().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+                //detailsViewHolder.getGenreBackground().getDrawable().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+                //detailsViewHolder.getPopBackground().getDrawable().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+                //detailsViewHolder.getLangBackground().getDrawable().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
 
                 detailsViewHolder.getTitleView().setText(movieDetails.getTitle());
 
@@ -105,7 +104,7 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 detailsViewHolder.getDurationView().setText(mActivity.getString(R.string.duration)
                         + movieDetails.getRuntime() + mActivity.getString(R.string.min));
 
-                detailsViewHolder.getRatingView().setText(movieDetails.getRating());
+                //detailsViewHolder.getRatingView().setText(movieDetails.getRating());
 
                 String genres = "";
                 if (movieDetails.getGenres() != null) {
@@ -119,15 +118,15 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     }
                 }
 
-                detailsViewHolder.getGenreView().setText(genres);
+                //detailsViewHolder.getGenreView().setText(genres);
 
-                if (movieDetails.getPopularity() != null) {
-                    detailsViewHolder.getPopularityView().setText(movieDetails.getPopularity().substring(0, 4));
-                }
+                //if (movieDetails.getPopularity() != null) {
+                    //detailsViewHolder.getPopularityView().setText(movieDetails.getPopularity().substring(0, 4));
+                //}
 
-                detailsViewHolder.getLanguageView().setText(movieDetails.getOriginalLanguage());
+                //detailsViewHolder.getLanguageView().setText(movieDetails.getOriginalLanguage());
                 detailsViewHolder.getOverviewView().setText(movieDetails.getOverview());
-                detailsViewHolder.getVoteCountView().setText(movieDetails.getVoteCount());
+                //detailsViewHolder.getVoteCountView().setText(movieDetails.getVoteCount());
 
                 break;
 
@@ -164,53 +163,27 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     static class MovieDetailsViewHolder extends RecyclerView.ViewHolder {
 
-        @InjectView(R.id.image)
-        ImageView imageView;
-        @InjectView(R.id.ratings_background)
-        ImageView ratingsBackground;
-        @InjectView(R.id.genre_background)
-        ImageView genreBackground;
-        @InjectView(R.id.pop_background)
-        ImageView popBackground;
-        @InjectView(R.id.lang_background)
-        ImageView langBackground;
-        @InjectView(R.id.title)
-        TextView titleView;
-        @InjectView(R.id.tagline)
-        TextView taglineView;
-        @InjectView(R.id.date_status)
-        TextView dateStatusView;
-        @InjectView(R.id.duration)
-        TextView durationView;
-        @InjectView(R.id.rating)
-        TextView ratingView;
-        @InjectView(R.id.genre)
-        TextView genreView;
-        @InjectView(R.id.popularity)
-        TextView popularityView;
-        @InjectView(R.id.language)
-        TextView languageView;
-        @InjectView(R.id.overview)
-        TextView overviewView;
-        @InjectView(R.id.vote_count)
-        TextView voteCountView;
+        @InjectView(R.id.image) ImageView imageView;
+        //@InjectView(R.id.ratings_background) ImageView ratingsBackground;
+        //@InjectView(R.id.genre_background) ImageView genreBackground;
+        //@InjectView(R.id.pop_background) ImageView popBackground;
+        //@InjectView(R.id.lang_background) ImageView langBackground;
+        @InjectView(R.id.title) TextView titleView;
+        @InjectView(R.id.tagline) TextView taglineView;
+        @InjectView(R.id.date_status) TextView dateStatusView;
+        @InjectView(R.id.duration) TextView durationView;
+        //@InjectView(R.id.rating) TextView ratingView;
+        //@InjectView(R.id.genre) TextView genreView;
+        //@InjectView(R.id.popularity) TextView popularityView;
+        //@InjectView(R.id.language) TextView languageView;
+        @InjectView(R.id.overview) TextView overviewView;
+        //@InjectView(R.id.vote_count) TextView voteCountView;
 
         public MovieDetailsViewHolder(View view) {
             super(view);
             ButterKnife.inject(this, view);
         }
 
-        public ImageView getGenreBackground() {
-            return genreBackground;
-        }
-
-        public ImageView getPopBackground() {
-            return popBackground;
-        }
-
-        public ImageView getLangBackground() {
-            return langBackground;
-        }
 
         public TextView getTitleView() {
             return titleView;
@@ -228,32 +201,9 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             return durationView;
         }
 
-        public TextView getRatingView() {
-            return ratingView;
-        }
-
-        public TextView getGenreView() {
-            return genreView;
-        }
-
-        public TextView getPopularityView() {
-            return popularityView;
-        }
-
-        public TextView getLanguageView() {
-            return languageView;
-        }
 
         public TextView getOverviewView() {
             return overviewView;
-        }
-
-        public TextView getVoteCountView() {
-            return voteCountView;
-        }
-
-        public ImageView getRatingsBackground() {
-            return ratingsBackground;
         }
 
         public ImageView getImageView() {

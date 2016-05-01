@@ -17,6 +17,8 @@ import com.udacity.nanodegree.wandersalomao.moviebuddy.model.MovieApiResponse;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.rest.RestClient;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.view.activity.MainActivity;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 
 import retrofit.Callback;
@@ -53,15 +55,15 @@ public class PopularMoviesFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //if (savedInstanceState != null) {
-          //  mMovieList = Parcels.unwrap(savedInstanceState.getParcelable("mMovieList"));
-        //}
+        if (savedInstanceState != null) {
+            mMovieList = Parcels.unwrap(savedInstanceState.getParcelable("mMovieList"));
+        }
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        //outState.putParcelable("mMovieList", Parcels. wrap(mMovieList));
+        outState.putParcelable("mMovieList", Parcels.wrap(mMovieList));
     }
 
     private final Callback popularMoviesCallback = new Callback<MovieApiResponse>() {
