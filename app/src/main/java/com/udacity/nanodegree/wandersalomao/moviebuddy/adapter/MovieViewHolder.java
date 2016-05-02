@@ -10,6 +10,11 @@ import com.udacity.nanodegree.wandersalomao.moviebuddy.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+/**
+ * This is a view holder class used to populate the movie card. This view holder is used by the
+ * MovieListAdapter and FavoriteMoviesAdapter
+ * @author Wander Salomao
+ */
 class MovieViewHolder extends RecyclerView.ViewHolder {
 
     @InjectView(R.id.image) ImageView imageView;

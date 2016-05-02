@@ -1,8 +1,14 @@
 package com.udacity.nanodegree.wandersalomao.moviebuddy.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.udacity.nanodegree.wandersalomao.moviebuddy.common.util.Constants;
+
 import org.parceler.Parcel;
 
+/**
+ * Class that represents the MovieDetails.
+ * @author Wander Salomao
+ */
 @Parcel
 public class MovieDetails {
 
@@ -11,9 +17,6 @@ public class MovieDetails {
 
     @SerializedName("title")
     private String title;
-
-    @SerializedName("vote_average")
-    private String rating;
 
     @SerializedName("genres")
     private MovieGenre[] genres;
@@ -30,20 +33,11 @@ public class MovieDetails {
     @SerializedName("backdrop_path")
     private String backdropPath;
 
-    @SerializedName("vote_count")
-    private String voteCount;
-
     @SerializedName("tagline")
     private String tagLine;
 
     @SerializedName("runtime")
     private String runtime;
-
-    @SerializedName("original_language")
-    private String originalLanguage;
-
-    @SerializedName("popularity")
-    private String popularity;
 
     @SerializedName("poster_path")
     private String posterPath;
@@ -54,10 +48,6 @@ public class MovieDetails {
 
     public String getTitle() {
         return title;
-    }
-
-    public String getRating() {
-        return rating;
     }
 
     public String getReleaseDate() {
@@ -80,43 +70,12 @@ public class MovieDetails {
         return tagLine;
     }
 
-    public String getVoteCount() {
-        return voteCount;
-    }
-
     public String getRuntime() {
         return runtime;
     }
 
-    public String getOriginalLanguage() {
-        return originalLanguage;
-    }
-
-    public String getPopularity() {
-        return popularity;
-    }
-
     public String getPosterPath() {
-        return posterPath;
-    }
-
-    public MovieGenre[] getGenres() {
-        return genres;
-    }
-
-    public String getGenre() {
-        String genres = "";
-        if (this.getGenres() != null) {
-            for (MovieGenre genre : this.getGenres()) {
-
-                if (!genres.isEmpty()) {
-                    genres += ", ";
-                }
-
-                genres += genre.getName();
-            }
-        }
-        return genres;
+        return Constants.POSTER_BASE_URL + posterPath;
     }
 
     public void setId(int id) {

@@ -1,5 +1,9 @@
 package com.udacity.nanodegree.wandersalomao.moviebuddy.common.util;
 
+/**
+ * This is a class used to provide constant used on the application
+ * @author Wander Salomao
+ */
 public class Constants {
 
     public static final String API_KEY = "87a901020f496977f9d6d508c5d186ec";

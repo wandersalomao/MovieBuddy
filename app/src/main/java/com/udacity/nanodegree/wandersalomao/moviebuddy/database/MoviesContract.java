@@ -6,6 +6,10 @@ import com.tjeannin.provigen.ProviGenBaseContract;
 import com.tjeannin.provigen.annotation.Column;
 import com.tjeannin.provigen.annotation.ContentUri;
 
+/**
+ * The contract that defines the columns that will be saved to the database for the movie entity
+ * @author Wander Salomao
+ */
 public interface MoviesContract extends ProviGenBaseContract {
 
     @Column(Column.Type.INTEGER)
@@ -13,12 +17,6 @@ public interface MoviesContract extends ProviGenBaseContract {
 
     @Column(Column.Type.TEXT)
     String TITLE = "title";
-
-    @Column(Column.Type.TEXT)
-    String RATING = "rating";
-
-    @Column(Column.Type.TEXT)
-    String GENRE = "genre";
 
     @Column(Column.Type.TEXT)
     String DATE = "release_date";
@@ -33,19 +31,10 @@ public interface MoviesContract extends ProviGenBaseContract {
     String BACKDROP = "backdrop";
 
     @Column(Column.Type.TEXT)
-    String VOTE_COUNT = "vote_count";
-
-    @Column(Column.Type.TEXT)
     String TAGLINE = "tag_line";
 
     @Column(Column.Type.TEXT)
     String RUNTIME = "runtime";
-
-    @Column(Column.Type.TEXT)
-    String LANGUAGE = "language";
-
-    @Column(Column.Type.TEXT)
-    String POPULARITY = "popularity";
 
     @Column(Column.Type.TEXT)
     String POSTER = "poster";

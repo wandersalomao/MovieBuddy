@@ -12,12 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.balysv.materialripple.MaterialRippleLayout;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.R;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.common.util.Constants;
-import com.udacity.nanodegree.wandersalomao.moviebuddy.common.util.ImageLoaderCallback;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.model.MovieDetails;
-import com.udacity.nanodegree.wandersalomao.moviebuddy.model.MovieGenre;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.model.Trailer;
 
 import java.util.List;
@@ -25,13 +24,17 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+/**
+ * This is an Adapter class for the Movie Details Fragment.
+ * @author Wander Salomao
+ */
 public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private MovieDetails movieDetails;
+    private List<Trailer> trailerInfo;
     private Activity mActivity;
     private Context mContext;
     private LayoutInflater mInflater;
-    private List<Trailer> trailerInfo;
 
     public MovieDetailsAdapter(MovieDetails movieDetails, List<Trailer> trailerInfo, Activity mActivity) {
         this.movieDetails = movieDetails;
@@ -47,10 +50,11 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         mContext = parent.getContext();
         RecyclerView.ViewHolder viewHolder = null;
 
+        // viewType == 0 means we need to inflate the view details
         if (viewType == 0) {
             View view = mInflater.inflate(R.layout.layout_holder_movie_details, parent, false);
             viewHolder = new MovieDetailsViewHolder(view);
-        } else if (viewType == 1) {
+        } else if (viewType == 1) { // viewType == 1 means we need to inflate the trailer view
             View view = mInflater.inflate(R.layout.layout_holder_movie_trailer, parent, false);
             viewHolder = new MovieTrailerViewHolder(view);
         }
@@ -61,9 +65,10 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public int getItemViewType(int position) {
 
+        // position 0 - view details
         if (position == 0)
             return 0;
-        if (position > 0)
+        if (position > 0) // position greater than 0 - trailer view
             return 1;
 
         return 2;
@@ -73,78 +78,64 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         switch (getItemViewType(position)) {
+            // if view details
             case 0:
 
                 final MovieDetailsViewHolder detailsViewHolder = (MovieDetailsViewHolder) holder;
 
-                String posterURL = Constants.POSTER_BASE_URL + movieDetails.getPosterPath();
-
+                // load the movie poster
                 Picasso.with(mContext)
-                        .load(posterURL)
-                        .into(detailsViewHolder.getImageView(), new ImageLoaderCallback(mContext, "Movie Poster"));
+                        .load(movieDetails.getPosterPath())
+                        .into(detailsViewHolder.getImageView(), new Callback.EmptyCallback());
 
-                int color = mContext.getResources().getColor(R.color.colorAccent);
-
-                //detailsViewHolder.getRatingsBackground().getDrawable().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
-                //detailsViewHolder.getGenreBackground().getDrawable().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
-                //detailsViewHolder.getPopBackground().getDrawable().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
-                //detailsViewHolder.getLangBackground().getDrawable().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
-
+                // set the movie title
                 detailsViewHolder.getTitleView().setText(movieDetails.getTitle());
 
+                // set the movie tagline is exists
                 if (movieDetails.getTagLine() != null && !movieDetails.getTagLine().isEmpty()) {
-                    detailsViewHolder.getTaglineView().setText("\"" + movieDetails.getTagLine() + "\"");
+                    detailsViewHolder.getTaglineView().setText(movieDetails.getTagLine());
                 } else {
                     detailsViewHolder.getTaglineView().setVisibility(View.GONE);
                 }
 
-                detailsViewHolder.getDateStatusView().setText(movieDetails.getReleaseDate()
-                        + " (" + movieDetails.getStatus() + ")");
+                // set the movie date status
+                detailsViewHolder.getDateStatusView().setText(
+                        mActivity.getString(R.string.movie_date_status,
+                                movieDetails.getReleaseDate(),
+                                movieDetails.getStatus()));
 
-                detailsViewHolder.getDurationView().setText(mActivity.getString(R.string.duration)
-                        + movieDetails.getRuntime() + mActivity.getString(R.string.min));
+                // set the movie duration
+                detailsViewHolder.getDurationView().setText(
+                        mActivity.getString(R.string.movie_duration,
+                                movieDetails.getRuntime()));
 
-                //detailsViewHolder.getRatingView().setText(movieDetails.getRating());
-
-                String genres = "";
-                if (movieDetails.getGenres() != null) {
-                    for (MovieGenre genre : movieDetails.getGenres()) {
-
-                        if (!genres.isEmpty()) {
-                            genres += ", ";
-                        }
-
-                        genres += genre.getName();
-                    }
-                }
-
-                //detailsViewHolder.getGenreView().setText(genres);
-
-                //if (movieDetails.getPopularity() != null) {
-                    //detailsViewHolder.getPopularityView().setText(movieDetails.getPopularity().substring(0, 4));
-                //}
-
-                //detailsViewHolder.getLanguageView().setText(movieDetails.getOriginalLanguage());
+                // set the movie overview
                 detailsViewHolder.getOverviewView().setText(movieDetails.getOverview());
-                //detailsViewHolder.getVoteCountView().setText(movieDetails.getVoteCount());
 
                 break;
 
+            // if view trailers
             case 1:
 
                 MovieTrailerViewHolder trailerViewHolder = (MovieTrailerViewHolder) holder;
                 final Trailer trailer = trailerInfo.get(position - 1);
 
+                // load the trailer poster
                 String youtubeUrl = Constants.YOUTUBE_THUMB + trailer.getKey() + Constants.YOUTUBE_MEDIUM_QUALITY;
-
                 Picasso.with(mContext)
                         .load(youtubeUrl)
-                        .into(trailerViewHolder.getTrailerImage(), new ImageLoaderCallback(mContext, "TrailerPoster"));
+                        .into(trailerViewHolder.getTrailerImage(), new Callback.EmptyCallback());
 
+                // set the trailer name
                 trailerViewHolder.getTitleView().setText(trailer.getName());
-                trailerViewHolder.getSiteView().setText(mActivity.getString(R.string.site) + trailer.getSite());
-                trailerViewHolder.getQualityView().setText(mActivity.getString(R.string.quality) + trailer.getSize() + "p");
 
+                // set the trailer site
+                trailerViewHolder.getSiteView().setText(mActivity.getString(R.string.trailer_site, trailer.getSite()));
+
+                // set the trailer quality
+                trailerViewHolder.getQualityView().setText(mActivity.getString(R.string.trailer_quality, trailer.getSize()));
+
+                // once a trailer is clicked we open youtube to watch it
                 trailerViewHolder.getRippleLayout().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -161,29 +152,23 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return 1 + trailerInfo.size();
     }
 
+    /**
+     * This is a ViewHolder class for the MovieDetails view
+     * @author Wander Salomao
+     */
     static class MovieDetailsViewHolder extends RecyclerView.ViewHolder {
 
         @InjectView(R.id.image) ImageView imageView;
-        //@InjectView(R.id.ratings_background) ImageView ratingsBackground;
-        //@InjectView(R.id.genre_background) ImageView genreBackground;
-        //@InjectView(R.id.pop_background) ImageView popBackground;
-        //@InjectView(R.id.lang_background) ImageView langBackground;
         @InjectView(R.id.title) TextView titleView;
         @InjectView(R.id.tagline) TextView taglineView;
         @InjectView(R.id.date_status) TextView dateStatusView;
         @InjectView(R.id.duration) TextView durationView;
-        //@InjectView(R.id.rating) TextView ratingView;
-        //@InjectView(R.id.genre) TextView genreView;
-        //@InjectView(R.id.popularity) TextView popularityView;
-        //@InjectView(R.id.language) TextView languageView;
         @InjectView(R.id.overview) TextView overviewView;
-        //@InjectView(R.id.vote_count) TextView voteCountView;
 
         public MovieDetailsViewHolder(View view) {
             super(view);
             ButterKnife.inject(this, view);
         }
-
 
         public TextView getTitleView() {
             return titleView;
@@ -201,7 +186,6 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             return durationView;
         }
 
-
         public TextView getOverviewView() {
             return overviewView;
         }
@@ -211,6 +195,10 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
+    /**
+     * This is a ViewHolder class for the Movie Trailer view
+     * @author Wander Salomao
+     */
     static class MovieTrailerViewHolder extends RecyclerView.ViewHolder {
 
         @InjectView(R.id.trailer_image) ImageView trailerImage;
@@ -244,5 +232,4 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             return rippleLayout;
         }
     }
-
 }

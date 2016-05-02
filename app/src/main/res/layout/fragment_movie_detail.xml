@@ -9,6 +9,7 @@
         android:id="@+id/recycler_movie_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/title_activity_movie_detail"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.design.widget.AppBarLayout
@@ -36,6 +37,7 @@
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     app:layout_collapseMode="parallax"
+                    android:contentDescription="@string/backdrop"
                     app:layout_scrollFlags="scroll|enterAlways" />
 
             </FrameLayout>
@@ -62,6 +64,7 @@
         android:clickable="true"
         android:visibility="invisible"
         app:layout_anchor="@id/appbar"
+        android:contentDescription="@string/fab_button"
         app:layout_anchorGravity="bottom|right|end" />
 </android.support.design.widget.CoordinatorLayout>
 

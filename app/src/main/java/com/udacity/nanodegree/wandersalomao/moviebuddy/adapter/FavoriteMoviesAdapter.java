@@ -8,21 +8,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.R;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.common.util.Constants;
-import com.udacity.nanodegree.wandersalomao.moviebuddy.common.util.ImageLoaderCallback;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.database.MoviesContract;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.listener.IMovieItemSelectedListener;
 
+/**
+ * This is an Adapter class for the Favorite Movies Fragment. Because the Favorite movies are
+ * stored in a local database, this adapter uses a cursor to populate the view
+ * @author Wander Salomao
+ */
 public class FavoriteMoviesAdapter extends RecyclerView.Adapter<MovieViewHolder> {
 
-    // Because RecyclerView.Adapter in its current form doesn't natively support cursors,
-    // we wrap a CursorAdapter that will do all the job for us.
-    //CursorAdapter mCursorAdapter;
-
+    // the Cursor containing the data
     private Cursor mCursor;
+
+    // the Context
     private Context mContext;
+
+    // the callback used to delegate the action when a movie is selected
     private IMovieItemSelectedListener mAdapterCallback;
 
     public FavoriteMoviesAdapter(Context context, Cursor cursor) {
@@ -39,26 +45,33 @@ public class FavoriteMoviesAdapter extends RecyclerView.Adapter<MovieViewHolder>
     @Override
     public void onBindViewHolder(MovieViewHolder movieViewHolder, final int position) {
 
+        // if the cursor is not null
         if (mCursor != null) {
+
+            // move to the right position
             mCursor.moveToPosition(position);
 
+            // here we get the necessary data
             final String movieId = mCursor.getString(mCursor.getColumnIndexOrThrow(MoviesContract.ID));
             final String title = mCursor.getString(mCursor.getColumnIndexOrThrow(MoviesContract.TITLE));
             final String posterPath = mCursor.getString(mCursor.getColumnIndexOrThrow(MoviesContract.POSTER));
 
+            // use the view holder to set up the view
             movieViewHolder.getTitleView().setText( title );
-
             movieViewHolder.itemView.setOnClickListener(new View.OnClickListener(){
 
                 @Override
                 public void onClick(View v) {
+
+                    // when a movie is selected we delegate the action to the callback
                     mAdapterCallback.onMovieSelected(movieId);
                 }
             });
 
+            // load the movie poster
             Picasso.with(mContext)
                     .load(Constants.POSTER_BASE_URL + posterPath)
-                    .into(movieViewHolder.getImageView(), new ImageLoaderCallback(mContext, "MoviePoster"));
+                    .into(movieViewHolder.getImageView(), new Callback.EmptyCallback());
         }
     }
 
@@ -67,10 +80,18 @@ public class FavoriteMoviesAdapter extends RecyclerView.Adapter<MovieViewHolder>
         return (mCursor == null) ? 0 : mCursor.getCount();
     }
 
+    /**
+     * Sets the callback
+     */
     public void setmAdapterCallback(IMovieItemSelectedListener mAdapterCallback) {
         this.mAdapterCallback = mAdapterCallback;
     }
 
+    /**
+     * Change the current cursor
+     *
+     * @param cursor - The new cursor
+     */
     public void changeCursor(Cursor cursor) {
         Cursor old = swapCursor(cursor);
         if (old != null) {
@@ -78,6 +99,11 @@ public class FavoriteMoviesAdapter extends RecyclerView.Adapter<MovieViewHolder>
         }
     }
 
+    /**
+     * Private function used to swap the current cursor by the given one.
+     * @param cursor - The new cursor
+     * @return - Returns the old cursor
+     */
     @Nullable
     private Cursor swapCursor(Cursor cursor) {
 
@@ -89,59 +115,9 @@ public class FavoriteMoviesAdapter extends RecyclerView.Adapter<MovieViewHolder>
         Cursor oldCursor = mCursor;
         mCursor = cursor;
 
-        //if (cursor != null) {
         this.notifyDataSetChanged();
-        //}
 
         return oldCursor;
     }
-
-    /*
-    static class FavoriteMoviesCursorAdapter extends CursorAdapter {
-
-        private IMovieItemSelectedListener mAdapterCallback;
-
-        public FavoriteMoviesCursorAdapter(Context context, Cursor cursor, int flags) {
-            super(context, cursor, 0);
-        }
-
-        public void setmAdapterCallback(IMovieItemSelectedListener mAdapterCallback) {
-            this.mAdapterCallback = mAdapterCallback;
-        }
-
-        @Override
-        public View newView(Context context, Cursor cursor, ViewGroup parent) {
-            View view = LayoutInflater.from(context).inflate(R.layout.movie_list_item, parent, false);
-            MovieViewHolder viewHolder = new MovieViewHolder(view);
-            view.setTag(viewHolder);
-
-            return view;
-        }
-
-        @Override
-        public void bindView(View view, Context context, Cursor cursor) {
-
-            MovieViewHolder viewHolder = (MovieViewHolder) view.getTag();
-
-            final String movieId = cursor.getString(cursor.getColumnIndexOrThrow(MoviesContract.ID));
-            final String title = cursor.getString(cursor.getColumnIndexOrThrow(MoviesContract.TITLE));
-            final String posterPath = cursor.getString(cursor.getColumnIndexOrThrow(MoviesContract.POSTER));
-
-            viewHolder.getTitleView().setText( title );
-
-            viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
-
-                @Override
-                public void onClick(View v) {
-                    mAdapterCallback.onMovieSelected(movieId);
-                }
-            });
-
-            Picasso.with(context)
-                    .load(Constants.POSTER_BASE_URL + posterPath)
-                    .into(viewHolder.getImageView(), new ImageLoaderCallback(context, "MoviePoster"));
-        }
-    }
-    */
 }
 

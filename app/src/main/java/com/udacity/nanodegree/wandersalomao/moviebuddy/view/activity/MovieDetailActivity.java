@@ -5,6 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.udacity.nanodegree.wandersalomao.moviebuddy.R;
 
+/**
+ * Activity for the Movie Details screen
+ * @author Wander Salomao
+ */
 public class MovieDetailActivity extends AppCompatActivity {
 
     @Override

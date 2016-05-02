@@ -12,6 +12,7 @@ import com.udacity.nanodegree.wandersalomao.moviebuddy.service.MovieWidgetServic
 
 /**
  * Implementation of App Widget functionality.
+ * @author Wander Salomao
  */
 public class MovieWidget extends AppWidgetProvider {
 

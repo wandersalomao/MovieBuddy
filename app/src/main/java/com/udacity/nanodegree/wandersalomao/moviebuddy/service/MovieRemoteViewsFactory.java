@@ -1,6 +1,5 @@
 package com.udacity.nanodegree.wandersalomao.moviebuddy.service;
 
-import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
@@ -12,17 +11,21 @@ import com.udacity.nanodegree.wandersalomao.moviebuddy.model.MovieDetails;
 
 import java.util.List;
 
+/**
+ * Factory class used to process and return the widgets view items
+ * @author Wander Salomao
+ */
 public class MovieRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
+    // the context
     private Context mContext;
+
+    // list of movies available on the widget
     private List<MovieDetails> mMovies;
-    private int mAppWidgetId;
 
     public MovieRemoteViewsFactory(Context context, Intent intent) {
 
         mContext = context;
-        mAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-                AppWidgetManager.INVALID_APPWIDGET_ID);
     }
 
     public void onCreate() {
@@ -39,9 +42,13 @@ public class MovieRemoteViewsFactory implements RemoteViewsService.RemoteViewsFa
 
     public RemoteViews getViewAt(int position) {
 
+        // get the widget item
         final RemoteViews rv = new RemoteViews(mContext.getPackageName(), R.layout.movie_widget_item);
+
+        // get the movie details
         MovieDetails movieDetails = mMovies.get(position);
 
+        // sets the movie title
         rv.setTextViewText(R.id.widget_movie_title, movieDetails.getTitle());
 
         return rv;
@@ -66,6 +73,7 @@ public class MovieRemoteViewsFactory implements RemoteViewsService.RemoteViewsFa
 
     public void onDataSetChanged() {
 
+        // get my favorite movies
         mMovies = MovieDAO.getMyFavoriteMovies(mContext);
     }
 }

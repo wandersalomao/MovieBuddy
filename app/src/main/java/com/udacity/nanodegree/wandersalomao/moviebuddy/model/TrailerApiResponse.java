@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * Class used to process the results of the MovieAPI
+ * @author Wander Salomao
+ */
 public class TrailerApiResponse {
 
     @SerializedName("results")

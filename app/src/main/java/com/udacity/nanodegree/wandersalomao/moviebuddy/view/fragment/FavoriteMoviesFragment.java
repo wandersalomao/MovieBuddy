@@ -18,31 +18,35 @@ import com.udacity.nanodegree.wandersalomao.moviebuddy.adapter.FavoriteMoviesAda
 import com.udacity.nanodegree.wandersalomao.moviebuddy.database.MoviesContract;
 import com.udacity.nanodegree.wandersalomao.moviebuddy.view.activity.MainActivity;
 
+/**
+ * Fragment class responsible for the Favorites screen
+ * @author Wander Salomao
+ */
 public class FavoriteMoviesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    private RecyclerView mRecyclerView;
+    // the Favorite Movies adapter
     private FavoriteMoviesAdapter mAdapter;
-    private GridLayoutManager mGridLayoutManager;
 
+    // the number of columns used on this screen
     private static final int NUMBER_GRID_COLUMNS = 3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        mRecyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_movies_list, container, false);
-        mGridLayoutManager = new GridLayoutManager(getActivity(), NUMBER_GRID_COLUMNS);
+        // create the recycle view and the grid layout manager
+        RecyclerView mRecyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_movies_list, container, false);
+        GridLayoutManager mGridLayoutManager = new GridLayoutManager(getActivity(), NUMBER_GRID_COLUMNS);
 
+        // creates the adapter and set the activity as callback
         mAdapter = new FavoriteMoviesAdapter(getContext(), null);
         mAdapter.setmAdapterCallback((MainActivity) this.getActivity());
 
+        // configure the recycle view
         mRecyclerView.setLayoutManager(mGridLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mAdapter);
 
-        /**
-         * Initializes the CursorLoader. The URL_LOADER value is eventually passed
-         * to onCreateLoader().
-         */
+        // Initializes the CursorLoader.
         getLoaderManager().initLoader(0, null, this);
 
         return mRecyclerView;

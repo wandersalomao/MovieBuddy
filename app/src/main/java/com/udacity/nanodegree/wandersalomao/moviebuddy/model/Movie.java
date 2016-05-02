@@ -5,6 +5,10 @@ import com.udacity.nanodegree.wandersalomao.moviebuddy.common.util.Constants;
 
 import org.parceler.Parcel;
 
+/**
+ * Class that represents a Movie.
+ * @author Wander Salomao
+ */
 @Parcel
 public class Movie {
 
@@ -29,14 +33,6 @@ public class Movie {
 
     public String getPosterPath() {
         return Constants.POSTER_BASE_URL + posterPath;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public String getOverview() {
-        return overview;
     }
 
     public String getId() {

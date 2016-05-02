@@ -1,8 +1,11 @@
 package com.udacity.nanodegree.wandersalomao.moviebuddy.model;
 
-
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Class that represents a Trailer.
+ * @author Wander Salomao
+ */
 public class Trailer {
 
     @SerializedName("id")

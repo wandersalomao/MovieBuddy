@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
+/**
+ * Class that represents a Movie Genre.
+ * @author Wander Salomao
+ */
 @Parcel
 public class MovieGenre {
 
