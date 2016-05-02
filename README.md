@@ -1,10 +1,15 @@
 # MovieBuddy
-MovieBuddy
--------
-
-MovieBuddy - Udacity Android Nanodegree Capstone Project
 
 MovieBuddy is an Android app that helps the users to keep track of their favorite movies, see the most popular movies, the movie details and watch the trailers of each movie.
+
+Getting Started
+-------
+This project uses the Gradle build system.  To build this project, use the
+"gradlew build" command or use "Import Project" in Android Studio.
+
+Movies API key
+-------
+In order to run this application you need to add you custom api key. To do that just edit the file Constants.java and replace the string "YOUR_API_KEY" with your key. 
 
 License
 -------
