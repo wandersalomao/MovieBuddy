@@ -23,46 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cbfa5ac-031d-4af2-b64f-ac656387fabd" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/common/util/ImageLoaderCallback.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/common/util/TypefaceUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_genre.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_normal_background.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_ratings.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/adapter/FavoriteMoviesAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/adapter/FavoriteMoviesAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/adapter/MovieDetailsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/adapter/MovieDetailsAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/adapter/MovieListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/adapter/MovieListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/adapter/MovieViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/adapter/MovieViewHolder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/common/util/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/common/util/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/database/MovieDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/database/MovieDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/database/MoviesContentProvider.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/database/MoviesContentProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/database/MoviesContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/database/MoviesContract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/listener/IMovieItemSelectedListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/listener/IMovieItemSelectedListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/model/Movie.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/model/Movie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/model/MovieApiResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/model/MovieApiResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/model/MovieDetails.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/model/MovieDetails.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/model/MovieGenre.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/model/MovieGenre.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/model/Trailer.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/model/Trailer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/model/TrailerApiResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/model/TrailerApiResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/rest/IMovieServiceAPI.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/rest/IMovieServiceAPI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/rest/RestClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/rest/RestClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/service/MovieRemoteViewsFactory.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/service/MovieRemoteViewsFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/service/MovieWidgetService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/service/MovieWidgetService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/view/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/view/activity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/view/activity/MovieDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/view/activity/MovieDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/view/fragment/FavoriteMoviesFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/view/fragment/FavoriteMoviesFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/view/fragment/MovieDetailFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/view/fragment/MovieDetailFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/view/fragment/PopularMoviesFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/view/fragment/PopularMoviesFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/view/widget/MovieWidget.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/view/widget/MovieWidget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-w600dp/layout_holder_movie_trailer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-w600dp/layout_holder_movie_trailer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movies_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movies_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_holder_movie_details.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_holder_movie_details.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_holder_movie_trailer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_holder_movie_trailer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/movie_widget.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/movie_widget.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/movie_widget_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/movie_widget_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="MovieBuddy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,7 +51,18 @@
     <favorites_list name="MovieBuddy" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/common/util/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3201133">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -1679,7 +1652,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/xml/movie_widget_info.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/adapter/MovieListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/adapter/MovieViewHolder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/common/util/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/adapter/FavoriteMoviesAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/adapter/MovieDetailsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/database/MoviesContentProvider.java" />
@@ -1711,6 +1683,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/movie_widget.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/movie_widget_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/common/util/Constants.java" />
       </list>
     </option>
   </component>
@@ -1866,6 +1839,96 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieBuddy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieBuddy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="udacity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nanodegree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wandersalomao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="moviebuddy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieBuddy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="udacity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nanodegree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wandersalomao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="moviebuddy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -1959,7 +2022,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="device.picker.selection" value="BH90L96B1L" />
+    <property name="device.picker.selection" value="192.168.56.101:5555" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Advanced_Android_Development-7.04_Integrating_the_Detail_Widget" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
   </component>
@@ -2259,7 +2322,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1279" height="736" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2268,7 +2331,7 @@
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38548386" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38548386" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2352,14 +2415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23512748">
           <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/common/util/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -2766,6 +2821,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5">
           <caret line="66" column="54" selection-start-line="66" selection-start-column="54" selection-end-line="66" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/nanodegree/wandersalomao/moviebuddy/common/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3201133">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
