@@ -2,9 +2,13 @@ package com.udacity.nanodegree.wandersalomao.moviebuddy.database;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 
 import com.udacity.nanodegree.wandersalomao.moviebuddy.model.MovieDetails;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MovieDAO {
 
@@ -25,6 +29,38 @@ public class MovieDAO {
         }
 
         return isFavorite;
+    }
+
+    public static List<MovieDetails> getMyFavoriteMovies(Context context) {
+
+        List<MovieDetails> movies = new ArrayList<>();
+
+        Cursor mCursor = context.getContentResolver().query(
+                MoviesContract.CONTENT_URI,
+                null,        // columns
+                null,        // selection clause
+                null,        // selection args
+                "");
+
+        if (mCursor != null) {
+            try {
+
+                MovieDetails movie;
+                while (mCursor.moveToNext()) {
+
+                    movie = new MovieDetails();
+                    movie.setId(mCursor.getInt(mCursor.getColumnIndexOrThrow(MoviesContract.ID)));
+                    movie.setTitle(mCursor.getString(mCursor.getColumnIndexOrThrow(MoviesContract.TITLE)));
+                    movie.setBackdropPath(mCursor.getString(mCursor.getColumnIndexOrThrow(MoviesContract.BACKDROP)));
+                    movie.setPosterPath(mCursor.getString(mCursor.getColumnIndexOrThrow(MoviesContract.POSTER)));
+                    movies.add(movie);
+                }
+            } finally {
+                mCursor.close();
+            }
+        }
+
+        return movies;
     }
 
     public static int unsetMovieAsFavorite(Activity mActivity, String movieId) {

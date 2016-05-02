@@ -19,15 +19,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.activity.MovieDetailActivity"
             android:label="@string/title_activity_movie_detail" />
 
         <provider
             android:name=".database.MoviesContentProvider"
-            android:authorities="com.udacity.nanodegree.wandersalomao.moviebuddy.provider" >
-        </provider>
+            android:exported="true"
+            android:authorities="com.udacity.nanodegree.wandersalomao.moviebuddy.provider" />
+
+        <receiver android:name=".view.widget.MovieWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/movie_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".service.MovieWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
 
     </application>
 
