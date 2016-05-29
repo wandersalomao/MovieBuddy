@@ -2,6 +2,12 @@
 
 MovieBuddy is an Android app that helps the users to keep track of their favorite movies, see the most popular movies, the movie details and watch the trailers of each movie.
 
+![](ScreenShots/PopularMovies.png) 
+
+![](ScreenShots/MovieDetails.png)
+
+![](ScreenShots/FavoriteMovies.png)
+
 Getting Started
 -------
 This project uses the Gradle build system.  To build this project, use the
